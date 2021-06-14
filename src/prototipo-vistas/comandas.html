@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SeaFood</title>
+        <link rel="stylesheet" type="text/css" href="css/estilosComandas.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    </head>
+    <body>
+        <div id="sup">
+        <table class="table table-hover" id="titulo">
+            <tbody>
+                <tr class="table-primary">
+                    <th scope="row"><center><h1>SeaFood</h1></center></th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+        <div id="contenido">            
+            <center>
+                <form id="crearOrden" name="crear" action="ServletControlador" method="post">
+                    <input type="hidden" name="accion" value="crear_orden">
+                    <input type="hidden" name="privilegio" value="<%= privilegio%>">
+                                       
+                    <h3>Empleado encargado:</h3>
+
+                    <select name="empleado_crear" required>
+                        <option value="De la O Cesar"></option> 
+                        <option value="De la O Cesar">De la O Cesar</option>                   
+                                             
+                        </option>                                    
+                    </select> 
+                    <br><br>
+                    <button type="submit" class="btn btn-primary" >Crear Orden</button>
+                </form>               
+            </center>
+            
+            <br><br><br>
+            <div id="tabCo">
+            <table border="0" align="center" width="1000" id="co" class="table table-hover">
+                <tbody>
+                <tr class="table-warning">
+                    <th scope="row">
+                        Id Orden
+                    </th>
+                    <th scope="row">
+                        Id Empleado
+                    </th>
+                    <th scope="row">
+                        Fecha
+                    </th>
+                    <th scope="row">
+                        Total
+                    </th>
+                    <th scope="row">
+                        Estado
+                    </th>
+                    <th scope="row" colspan="3">
+                        <center>Opciones</center>                        
+                    </th>
+                </tr>
+                <tr class="table-secondary">
+                    <td scope="row">
+                        <p name="id">
+                            1
+                        </p>
+                    </td>
+                    <td scope="row">
+                        <p name="empleado">
+                            2
+                        </p>
+                    </td>
+                    <td scope="row">
+                        <p name="fecha">
+                            2021-04-09 02:05:20
+                        </p>
+                    </td>
+                    <td scope="row">
+                        <p name="total">
+                            $ 120
+                        </p>
+                    </td>    
+                    <td scope="row">
+                        <p name="estado">
+                            Activa
+                        </p>
+                    </td>
+                    <td scope="row">
+                        <center>
+                            <form id="modificarOrden" method="post" action="ServletControlador">
+                                <input type="hidden" name="accion" value="modificar_orden">
+                                <input type="hidden" name="privilegio" value="<%= privilegio%>">
+                                <input type="hidden" name="id_orden" value="<%= orden.getIdOrden()%>">
+                                <button type="submit" class="btn btn-primary" >Modificar</button>
+                            </form>
+                        </center>
+                    </td>
+                    <td scope="row">
+                        <center>
+                            <form id="cerrarOrden" method="post" action="ServletControlador">
+                                <input type="hidden" name="accion" value="cerrar_orden">
+                                <input type="hidden" name="privilegio" value="<%= privilegio%>">
+                                <input type="hidden" name="id_orden" value="<%= orden.getIdOrden()%>">
+                                <button type="submit" class="btn btn-primary" >Cerrar</button>
+                            </form>  
+                        </center>
+                    </td>
+                    <td scope="row">
+                        <center>
+                            <form id="ordenPerdida" method="post" action="ServletControlador">
+                                <input type="hidden" name="accion" value="orden_perdida">
+                                <input type="hidden" name="privilegio" value="<%= privilegio%>">
+                                <input type="hidden" name="id_orden" value="<%= orden.getIdOrden()%>">
+                                <button type="submit" class="btn btn-primary" >Eliminar</button>
+                            </form>  
+                        </center>
+                    </td>
+                </tr>
+                <tr class="table-secondary">
+                    <td scope="row">
+                        <p name="id">
+                            2
+                        </p>
+                    </td>
+                    <td scope="row">
+                        <p name="empleado">
+                            2
+                        </p>
+                    </td>
+                    <td scope="row">
+                        <p name="fecha">
+                            2021-01-09 02:10:44
+                        </p>
+                    </td>
+                    <td scope="row">
+                        <p name="total">
+                            $ 150
+                        </p>
+                    </td>    
+                    <td scope="row">
+                        <p name="estado">
+                            Activa
+                        </p>
+                    </td>
+                    <td scope="row">
+                        <center>
+                            <form id="modificarOrden" method="post" action="ServletControlador">
+                                <input type="hidden" name="accion" value="modificar_orden">
+                                <input type="hidden" name="privilegio" value="<%= privilegio%>">
+                                <input type="hidden" name="id_orden" value="<%= orden.getIdOrden()%>">
+                                <button type="submit" class="btn btn-primary" >Modificar</button>
+                            </form>
+                        </center>
+                    </td>
+                    <td scope="row">
+                        <center>
+                            <form id="cerrarOrden" method="post" action="ServletControlador">
+                                <input type="hidden" name="accion" value="cerrar_orden">
+                                <input type="hidden" name="privilegio" value="<%= privilegio%>">
+                                <input type="hidden" name="id_orden" value="<%= orden.getIdOrden()%>">
+                                <button type="submit" class="btn btn-primary" >Cerrar</button>
+                            </form>  
+                        </center>
+                    </td>
+                    <td scope="row">
+                        <center>
+                            <form id="ordenPerdida" method="post" action="ServletControlador">
+                                <input type="hidden" name="accion" value="orden_perdida">
+                                <input type="hidden" name="privilegio" value="<%= privilegio%>">
+                                <input type="hidden" name="id_orden" value="<%= orden.getIdOrden()%>">
+                                <button type="submit" class="btn btn-primary" >Eliminar</button>
+                            </form>  
+                        </center>
+                    </td>
+                </tr>
+                <tr class="table-secondary">
+                    <td scope="row">
+                        <p name="id">
+                            3
+                        </p>
+                    </td>
+                    <td scope="row">
+                        <p name="empleado">
+                            2
+                        </p>
+                    </td>
+                    <td scope="row">
+                        <p name="fecha">
+                            2021-01-09 02:11:57
+                        </p>
+                    </td>
+                    <td scope="row">
+                        <p name="total">
+                            $ 40
+                        </p>
+                    </td>    
+                    <td scope="row">
+                        <p name="estado">
+                            Activa
+                        </p>
+                    </td>
+                    <td scope="row">
+                        <center>
+                            <form id="modificarOrden" method="post" action="ServletControlador">
+                                <input type="hidden" name="accion" value="modificar_orden">
+                                <input type="hidden" name="privilegio" value="<%= privilegio%>">
+                                <input type="hidden" name="id_orden" value="<%= orden.getIdOrden()%>">
+                                <button type="submit" class="btn btn-primary" >Modificar</button>
+                            </form>
+                        </center>
+                    </td>
+                    <td scope="row">
+                        <center>
+                            <form id="cerrarOrden" method="post" action="ServletControlador">
+                                <input type="hidden" name="accion" value="cerrar_orden">
+                                <input type="hidden" name="privilegio" value="<%= privilegio%>">
+                                <input type="hidden" name="id_orden" value="<%= orden.getIdOrden()%>">
+                                <button type="submit" class="btn btn-primary" >Cerrar</button>
+                            </form>  
+                        </center>
+                    </td>
+                    <td scope="row">
+                        <center>
+                            <form id="ordenPerdida" method="post" action="ServletControlador">
+                                <input type="hidden" name="accion" value="orden_perdida">
+                                <input type="hidden" name="privilegio" value="<%= privilegio%>">
+                                <input type="hidden" name="id_orden" value="<%= orden.getIdOrden()%>">
+                                <button type="submit" class="btn btn-primary" >Eliminar</button>
+                            </form>  
+                        </center>
+                    </td>
+                </tr>
+                <th scope="row">                    
+                </tbody>
+            </table>
+        </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <!-- <div id="footer"></div> -->
+        </div>
+        <%
+            }
+        %>
+    </body>
+</html>

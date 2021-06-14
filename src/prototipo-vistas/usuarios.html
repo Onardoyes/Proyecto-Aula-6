@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SeaFood</title>
+        <link rel="stylesheet" type="text/css" href="css/estilosUsuarios.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    </head>
+    <body>      
+    <div id="sup">
+        <table class="table table-hover" id="titulo">
+            <tbody>
+                <tr class="table-primary">
+                    <th scope="row"><center><h1>SeaFood</h1></center></th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+        <div id="contenido">
+            <br>
+            <center>
+                <h1>USUARIOS</h1>
+            </center>
+            <br>
+            <br>
+            <div class="card bg-light mb-3" id="formAgregar">
+                <div class="card-body">
+                    <form action="/add" method="post">
+                        <input type="text" class="form-control" name="nombre" placeholder="Nombre" class="form-control">
+                        <br>
+                        <input type="text" class="form-control" name="primer_apellido" placeholder="Primer Apellido" class="form-control">
+                        <br>
+                        <input type="text" class="form-control" name="segundo_apellido" placeholder="Segundo Apellido" class="form-control">
+                        <br>
+                        <input type="text" class="form-control" name="cve_tipo_empleado" placeholder="Tipo de Empleado" class="form-control">
+                        <br>
+                        <center><a href="registroUsuario.jsp"><button type="submit" class="btn btn-primary" id="bot">Registrar Usuario</button></a></center>
+                    </form>
+                </div>
+            </div>
+            
+            <br>
+            <br>
+            <br>
+            <div id="tabUs">
+            <table border="0" align="center" id="us" class="table table-hover">
+                <tbody>
+                <tr class="table-warning">
+                    <th scope="row">
+                        Id Usuario
+                    </th>
+                    <th scope="row">
+                        Nombre
+                    </th>
+                    <th scope="row">
+                        Apellido Paterno
+                    </th>
+                    <th scope="row">
+                        Apellido Materno
+                    </th>
+                    <th scope="row">
+                        Tipo de Empleado
+                    </th>
+                    <th colspan="2" scope="row">
+                        <center>Opciones</center>                        
+                    </th>
+                </tr>
+                <tr class="table-secondary">
+                    <td scope="row">
+                        <p name="id">
+                            1
+                        </p>
+                    </td>
+                    <td scope="row">
+                        <p name="nombre">
+                            Angel
+                        </p>
+                    </td>
+                    <td scope="row">
+                        <p name="apellidoPat">
+                            Reyes
+                        </p>
+                    </td>
+                    <td scope="row">
+                        <p name="apellidoMat">
+                            Vega
+                        </p>
+                    </td>    
+                    <td scope="row">
+                        <p name="privilegio">
+                            A
+                        </p>
+                    </td>
+                    <td scope="row">
+                        <center>
+                            <form id="modificarUsuario" method="post" action="ServletSesion">
+                                <input type="hidden" name="accion" value="modify_usr">
+                                <input type="hidden" name="privilegio" value="<%= privilegio%>">
+                                <input type="hidden" name="id_usuario" value="<%= usuario.getIdUsuario()%>">
+                                <center><a href="registroUsuario.jsp"><button type="submit" class="btn btn-primary" >Modificar</button></a></center>
+                            </form>
+                        </center>
+                    </td>
+                    <td scope="row">
+                        <center>
+                            <form id="eliminarUsuario" method="post" action="ServletSesion">
+                                <input type="hidden" name="accion" value="delete_usr">
+                                <input type="hidden" name="privilegio" value="<%= privilegio%>">
+                                <input type="hidden" name="id_usuario" value="<%= usuario.getIdUsuario()%>">
+                                <center><a href="registroUsuario.jsp"><button type="submit" class="btn btn-primary" >Eliminar</button></a></center>
+                            </form>  
+                        </center>
+                    </td> 
+                </tr>
+                <tr class="table-secondary">
+                    <td scope="row">
+                        <p name="id">
+                            2
+                        </p>
+                    </td>
+                    <td scope="row">
+                        <p name="nombre">
+                            Cesar
+                        </p>
+                    </td>
+                    <td scope="row">
+                        <p name="apellidoPat">
+                            De la O
+                        </p>
+                    </td>
+                    <td scope="row">
+                        <p name="apellidoMat">
+                            Cordero
+                        </p>
+                    </td>    
+                    <td scope="row">
+                        <p name="privilegio">
+                            C
+                        </p>
+                    </td>
+                    <td scope="row">
+                        <center>
+                            <form id="modificarUsuario" method="post" action="ServletSesion">
+                                <input type="hidden" name="accion" value="modify_usr">
+                                <input type="hidden" name="privilegio" value="<%= privilegio%>">
+                                <input type="hidden" name="id_usuario" value="<%= usuario.getIdUsuario()%>">
+                                <center><a href="registroUsuario.jsp"><button type="submit" class="btn btn-primary" >Modificar</button></a></center>
+                            </form>
+                        </center>
+                    </td>
+                    <td scope="row">
+                        <center>
+                            <form id="eliminarUsuario" method="post" action="ServletSesion">
+                                <input type="hidden" name="accion" value="delete_usr">
+                                <input type="hidden" name="privilegio" value="<%= privilegio%>">
+                                <input type="hidden" name="id_usuario" value="<%= usuario.getIdUsuario()%>">
+                                <center><button type="submit" class="btn btn-primary" >Eliminar</button></center>
+                            </form>  
+                        </center>
+                    </td> 
+                </tr>
+                <tr class="table-secondary">
+                    <td scope="row">
+                        <p name="id">
+                            3
+                        </p>
+                    </td>
+                    <td scope="row">
+                        <p name="nombre">
+                            Carlos
+                        </p>
+                    </td>
+                    <td scope="row">
+                        <p name="apellidoPat">
+                            Martinez
+                        </p>
+                    </td>
+                    <td scope="row">
+                        <p name="apellidoMat">
+                            Sanchez
+                        </p>
+                    </td>    
+                    <td scope="row">
+                        <p name="privilegio">
+                            A
+                        </p>
+                    </td>
+                    <td scope="row">
+                        <center>
+                            <form id="modificarUsuario" method="post" action="ServletSesion">
+                                <input type="hidden" name="accion" value="modify_usr">
+                                <input type="hidden" name="privilegio" value="<%= privilegio%>">
+                                <input type="hidden" name="id_usuario" value="<%= usuario.getIdUsuario()%>">
+                                <center><a href="registroUsuario.jsp"><button type="submit" class="btn btn-primary" >Modificar</button></a></center>
+                            </form>
+                        </center>
+                    </td>
+                    <td scope="row">
+                        <center>
+                            <form id="eliminarUsuario" method="post" action="ServletSesion">
+                                <input type="hidden" name="accion" value="delete_usr">
+                                <input type="hidden" name="privilegio" value="<%= privilegio%>">
+                                <input type="hidden" name="id_usuario" value="<%= usuario.getIdUsuario()%>">
+                                <center><a href="registroUsuario.jsp"><button type="submit" class="btn btn-primary" >Eliminar</button></a></center>
+                            </form>  
+                        </center>
+                    </td> 
+                </tr>
+                </tbody>
+            </table> 
+            </div>           
+        </div>
+                <br>
+                <!-- <div id="footer"></div> -->
+    </body>
+    <script type="text/javascript">
+        function boton() {
+            alert("Usuario ingresado correctamente");
+        }
+    </script>
+</html>

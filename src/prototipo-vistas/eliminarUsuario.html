@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SeaFood</title>
+    <link rel="stylesheet" type="text/css" href="css/estilosEliminarUsuario.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <script src="validar.js"></script>
+</head>
+<body>
+    <div id="sup">
+        <table class="table table-hover" id="titulo">
+            <tbody>
+                <tr class="table-primary">
+                    <th scope="row"><center><h1>SeaFood</h1></center></th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="contenido">
+    <center>    
+    <form id="eliminarUsuario" name="delete_usr" action="ServletSesion" onsubmit="return validarDatos();" method="post">
+    <input type="hidden" name="accion" value="delete_usr_final">
+    <input type="hidden" name="privilegio" value="<%= privilegio%>">
+    <div class="contenedor-inputs">
+    <div class="card bg-light mb-3" id="formReport">
+    <div class="card-body">
+        <h1>Reportes</h1>
+        <br>
+        <br>
+        <form action="/addReportes" method="POST">
+        <input type="text" class="form-control" name="nombre" placeholder="ID Empleado" class="form-control">
+        <br>
+        <input type="text" class="form-control" name="nombre" placeholder="ID Prioridad" class="form-control">
+        <br>
+        <input type="datetime-local" class="form-control" name="nombre" placeholder="Fecha Reporte" class="form-control">
+        <br>
+        <input type="text" class="form-control" name="nombre" placeholder="Email" class="form-control">
+        <br>
+        <textarea class="form-control" id="exampleTextarea" rows="3" placeholder="Descripción del Problema"></textarea>
+        <br>
+        <center><a href="registroUsuario.jsp"><button type="submit" class="btn btn-primary" >Enviar</button></a></center>
+    </form>
+</div></div>
+    </center>
+    <!-- <div id="footer"></div> -->
+    </div>
+</body>
+</html>
+<!-- JSP PROBADO Y LISTO --> -->

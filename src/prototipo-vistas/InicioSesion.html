@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SeaFood</title>
+    <link rel="stylesheet" type="text/css" href="css/estilosInicioSesion.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+</head>
+<script src="js/validarInicioSesion.js"></script>
+<body>
+    <div id="sup">
+        <table class="table table-hover" id="titulo">
+            <tbody>
+                <tr class="table-primary">
+                    <th scope="row"><center><h1>SeaFood</h1></center></th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="contenido">
+    <center>
+    <div id="izquierda">
+    <div class="card bg-light mb-3">
+        <div class="card-body">
+        <form id="inicioSesion" name="login" action="ServletSesion" onsubmit="return validarDatos()" method="post">
+            <input type="hidden" name="accion" value="login">
+            <center>
+                <table class="table table-hover" id="inicioSesion">
+                    <tbody>
+                        <tr class="table-warning">
+                        <th scope="row"><center><img src="img/admin.jpg"></center></th>
+                        </tr>
+                    <tr class="table-secondary">
+                        <td><center><h3>ID</h3></center></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                <input class="form-control form-control-lg" type="text" placeholder="Ingrese su ID" id="id_login" name="id_login" onkeypress="return validarID(evt);">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="table-secondary">
+                        <td><center><h3>CONTRASEÑA</h3></center></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                <input class="form-control form-control-lg" type="password" placeholder="Ingrese su contraseña" id="password_login" name="password_login">
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>        
+                <br><br>            
+                <button type="submit" class="btn btn-primary btn-lg">Iniciar Sesión</button>
+            </center>
+        </form>
+    </div>
+    </div>
+    </div>
+    <div id="derecha">
+        <div class="card bg-light mb-3">
+        <div class="card-body">
+            <form id="inicioSesion" name="login" action="ServletSesion" onsubmit="return validarDatos()" method="post">
+            <input type="hidden" name="accion" value="login">
+            <center>
+                <table class="table table-hover" id="inicioSesion">
+                    <tbody>
+                        <tr class="table-warning">
+                        <th scope="row"><center><img src="img/chef.jpg"></center></th>
+                        </tr>
+                    <tr class="table-secondary">
+                        <td><center><h3>ID</h3></center></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                <input class="form-control form-control-lg" type="text" placeholder="Ingrese su ID" id="id_login" name="id_login" onkeypress="return validarID(evt);">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="table-secondary">
+                        <td><center><h3>CONTRASEÑA</h3></center></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                <input class="form-control form-control-lg" type="password" placeholder="Ingrese su contraseña" id="password_login" name="password_login">
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>        
+                <br><br>            
+                <button type="submit" class="btn btn-primary btn-lg">Iniciar Sesión</button>
+            </center>
+        </form>
+        </div>
+        </div>    
+    </div>
+</center>
+    <h4 align="center">
+    </h4>
+    <!-- <footer></footer> -->
+</body>
+</html>
+
+<!-- JSP PROBADO Y LISTO -->

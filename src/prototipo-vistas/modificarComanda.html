@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/estilosModificarComanda.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <title>SeaFood</title>
+    <script src="validar.js"></script>
+</head>
+<script src="js/validar.js"></script>
+<body>
+    <div id="sup">
+        <table class="table table-hover" id="titulo">
+            <tbody>
+                <tr class="table-primary">
+                    <th scope="row"><center><h1>SeaFood</h1></center></th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="contenido">   
+        <h4 align="center">
+        </h4>
+        <div id="izquierda">
+            <center>
+                <h2>Platillos</h2>
+                <table align="center" width="700" class="table table-hover">
+                    <tbody>
+                    <tr class="table-warning">
+                        <th scope="row">
+                            Coctel
+                        </th>                        
+                    </tr>
+                    <tr class="table-secondary">                      
+                        <td scope="row">                            
+                            <form id="agregarPlatillo" name="agregarPlatillo" action="ServletControlador" method="post">
+                                <input type="hidden" name="accion" value="agregar_platillo_orden">     
+                                <input type="hidden" name="privilegio" value="<%= privilegio%>">
+                                <select name="platillos_id" style="width: 300px; height: 23px">                                  
+                                    <option value="<%= platillo.getIdPlatillo()%>">COCTEL CAMPECHANO CHICO</option>
+                                    <option value="<%= platillo.getIdPlatillo()%>">COCTEL CAMPECHANO GRANDE</option>
+                                    <option value="<%= platillo.getIdPlatillo()%>">COCTEL CAMPECHANO MEDIANO</option>
+                                    <option value="<%= platillo.getIdPlatillo()%>">COCTEL DE CAMARON CHICO</option>
+                                    <option value="<%= platillo.getIdPlatillo()%>">COCTEL DE CAMARON MEDIANO</option>
+                                    <option value="<%= platillo.getIdPlatillo()%>">COCTEL DE CAMARON GRANDE</option>                       
+                                </select>  
+                                <select name="cantidad" style="width: 50px; height: 20px">
+                                    <option value="<%= i%>">1</option>
+                                    <option value="<%= i%>">2</option>
+                                    <option value="<%= i%>">3</option>
+                                    <option value="<%= i%>">4</option>
+                                    <option value="<%= i%>">5</option>
+                                    <option value="<%= i%>">6</option>
+                                    <option value="<%= i%>">7</option>
+                                    <option value="<%= i%>">8</option>
+                                    <option value="<%= i%>">9</option>
+                                </select>   
+                                <button type="submit" class="btn btn-primary" >Agregar</button>                                                            
+                                <br><br>                                                                                                                        
+                            </form>
+                        </td> 
+                    </tr>
+                    <tr class="table-warning">
+                        <th scope="row">
+                            Caldos
+                        </th>
+                    </tr>
+                    <tr class="table-secondary">
+                        <td>
+                            <form id="agregarPlatillo" name="agregarPlatillo" action="ServletControlador" method="post">
+                                <input type="hidden" name="accion" value="agregar_platillo_orden">     
+                                <input type="hidden" name="privilegio" value="<%= privilegio%>">
+                                <select name="platillos_id" style="width: 300px; height: 23px">
+                                    <option value="<%= platillo.getIdPlatillo()%>">CALDO DE CAMARON CHICO</option> 
+                                    <option value="<%= platillo.getIdPlatillo()%>">CALDO DE CAMARON GRANDE</option>
+                                    <option value="<%= platillo.getIdPlatillo()%>">CALDO DE PESCADO CHICO</option>
+                                    <option value="<%= platillo.getIdPlatillo()%>">CALDO DE PESCADO GRANDE</option>
+
+                                </select> 
+                                <select name="cantidad" style="width: 50px; height: 20px">
+                                    <option value="<%= i%>">1</option>
+                                    <option value="<%= i%>">2</option>
+                                    <option value="<%= i%>">3</option>
+                                    <option value="<%= i%>">4</option>
+                                    <option value="<%= i%>">5</option>
+                                    <option value="<%= i%>">6</option>
+                                    <option value="<%= i%>">7</option>
+                                    <option value="<%= i%>">8</option>
+                                    <option value="<%= i%>">9</option>
+                                </select>                           
+                                <button type="submit" class="btn btn-primary" >Agregar</button>                                                           
+                                <br><br>                                                                                                                        
+                            </form>
+                        </td>                        
+                    </tr>
+                    <tr class="table-warning">
+                        <th scope="row">
+                            Camarones
+                        </th>
+                    </tr>
+                    <tr class="table-secondary">
+                        <td scope="row">
+                            <form id="agregarPlatillo" name="agregarPlatillo" action="ServletControlador" method="post">
+                                <input type="hidden" name="accion" value="agregar_platillo_orden"> 
+                                <input type="hidden" name="privilegio" value="<%= privilegio%>">
+                                <select name="platillos_id" style="width: 300px; height: 23px">                                
+                                    <option value="<%= platillo.getIdPlatillo()%>">CAMARONES A LA DIABLA</option>
+                                    <option value="<%= platillo.getIdPlatillo()%>">CAMARONES A LA PLANCHA</option>
+                                    <option value="<%= platillo.getIdPlatillo()%>">CAMARONES AL AJILLO</option>
+                                    <option value="<%= platillo.getIdPlatillo()%>">CAMARONES AL COCO</option>
+                                    <option value="<%= platillo.getIdPlatillo()%>">CAMARONES CON TOCINO</option>
+                                    <option value="<%= platillo.getIdPlatillo()%>">CAMARONES EMPANIZADOS</option>
+
+                                </select> 
+                                <select name="cantidad" style="width: 50px; height: 20px">
+                                    <option value="<%= i%>">1</option>
+                                    <option value="<%= i%>">2</option>
+                                    <option value="<%= i%>">3</option>
+                                    <option value="<%= i%>">4</option>
+                                    <option value="<%= i%>">5</option>
+                                    <option value="<%= i%>">6</option>
+                                    <option value="<%= i%>">7</option>
+                                    <option value="<%= i%>">8</option>
+                                    <option value="<%= i%>">9</option>
+                                </select> 
+                                <button type="submit" class="btn btn-primary" >Agregar</button>                                                           
+                                <br><br>                                                                                                                        
+                            </form>
+                        </td>                                                
+                    </tr>
+                    <tr class="table-warning">
+                        <th scope="row">
+                            Entradas
+                        </th>
+                    </tr>
+                    <tr class="table-secondary">
+                        <td scope="row">
+                            <form id="agregarPlatillo" name="agregarPlatillo" action="ServletControlador" method="post">
+                                <input type="hidden" name="accion" value="agregar_platillo_orden">    
+                                <input type="hidden" name="privilegio" value="<%= privilegio%>">
+                                <select name="platillos_id" style="width: 300px; height: 23px">                                 
+                                    <option value="<%= platillo.getIdPlatillo()%>">EMPANADA COMBINADA</option>
+                                    <option value="<%= platillo.getIdPlatillo()%>">EMPANADA DE CAMARON</option>
+                                    <option value="<%= platillo.getIdPlatillo()%>">EMPANADA HAWAIANA DE CAMARON</option>
+                                    <option value="<%= platillo.getIdPlatillo()%>">EMPANADA HAWAIANA DE MARISCOS</option>                             
+                                </select> 
+                                <select name="cantidad" style="width: 50px; height: 20px">
+                                    <option value="<%= i%>">1</option>
+                                    <option value="<%= i%>">2</option>
+                                    <option value="<%= i%>">3</option>
+                                    <option value="<%= i%>">4</option>
+                                    <option value="<%= i%>">5</option>
+                                    <option value="<%= i%>">6</option>
+                                    <option value="<%= i%>">7</option>
+                                    <option value="<%= i%>">8</option>
+                                    <option value="<%= i%>">9</option>
+                                </select> 
+                                <button type="submit" class="btn btn-primary" >Agregar</button>                                                            
+                                <br><br>                                                                                                                        
+                            </form>
+                        </td>                                               
+                    </tr>
+                    </tbody>
+                </table>
+            </center>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+        <div id="derecha">
+            <center>    
+                <h2>Detalle de la orden</h2>
+            <table align="center" width="700" id="mod" class="table table-hover">
+                <tbody>
+                <tr class="table-warning">
+                    <th scope="row">
+                        Id Orden
+                    </th>
+                    <th scope="row">
+                        Id Empleado
+                    </th>
+                    <th scope="row">
+                        Fecha
+                    </th>
+                    <th scope="row">
+                        Total
+                    </th>
+                    <th scope="row">
+                        Estado
+                    </th>
+                    <th colspan="2" scope="row">
+                        <center>Opciones</center>                        
+                    </th>
+                </tr>
+                <tr class="table-secondary">
+                    <td scope="row">
+                        <p name="id">
+                            1
+                        </p>
+                    </td>
+                    <td scope="row">
+                        <p name="empleado">
+                            2
+                        </p>
+                    </td>
+                    <td scope="row">
+                        <p name="fecha">
+                            2021-04-09 02:05:20
+                        </p>
+                    </td>
+                    <td scope="row">
+                        <p name="costo">
+                            $ 150
+                        </p>
+                    </td>    
+                    <td scope="row">
+                        <p name="estatus">  
+                        Activa                  
+                        </p>
+                    </td>
+                    <td scope="row">
+                        <center>
+                            <form id="cerrarOrden" method="post" action="ServletControlador">
+                                <input type="hidden" name="accion" value="cerrar_orden">
+                                <input type="hidden" name="privilegio" value="<%= privilegio%>">
+                                <input type="hidden" name="id_orden" value="<%= orden.getIdOrden()%>">
+                                <button type="submit" class="btn btn-primary" >Cerrar</button>
+                            </form>  
+                        </center>
+                    </td>        
+                </tr>
+                <th>
+                </tbody>
+            </table>
+            <table align="center" width="500" class="table table-hover">
+                <tbody>
+                <tr class="table-warning">                    
+                    <th scope="row">
+                        Platillo
+                    </th>
+                    <th scope="row">
+                        Cantidad
+                    </th>
+                    <th scope="row">
+                        Subtotal
+                    </th>
+                    <!--
+                    <th scope="row">
+                        Descartar
+                    </th>
+                    -->
+                </tr>
+                <tr class="table-secondary">
+                    <td scope="row">
+                        CAMARONES EMPANIZADOS
+                    </td>                    
+                    <td scope="row">
+                        2
+                    </td>
+                    <td scope="row">
+                        $150
+                    </td>
+                    <!-- comment
+                    <td scope="row">
+                        Opciones
+                    </td>
+                    -->
+                </tr>
+                </tbody>
+            </table>
+            </center>
+        </div>   
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <!-- <div id="footer"></div> -->
+    </div>
+    <%
+        }
+    %>
+    <BR>
+    <BR>
+</body>
+</html>

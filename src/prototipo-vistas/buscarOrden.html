@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>El Marisquito</title>
+        <link rel="stylesheet" type="text/css" href="css/estilosBuscarTicket.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    </head>
+    <body>
+        <div id="sup">
+            <img src="img/CAMARON1.jpg" align="left">
+            <center><h3>EL MARISQUITO 1.0</h3></center>
+            Av. Pantitlán 323, <br>
+            Evolución, 57000 <br>
+            Nezahualcóyotl, Méx.
+        </div>
+        <div id="menu">
+             <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+                <a class="navbar-brand" href="#"><%=nombre%></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-targe<%=nombre%>t="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarColor01">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="inicio.html">Inicio
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="comandas.html">Comandas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="almacen.html">Almacen</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="buscarOrden.html">Buscar Orden</a>
+                        </li>
+
+                        <li class="nav-item">
+                        <a class="nav-link" href="cierreCaja.html">Cierre de Caja</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="usuarios.html">Usuarios</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="graficas.html">Gráficas</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="ServletSesion?accion=logout">Cerrar Sesión</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            </div>
+        <div id="contenido">            
+            <center><h2>Buscar Orden</h2>
+                <br>
+                <table class="table table-hover" id="mostrarTodasOrdenes">
+                    <tbody>
+                    <tr class="table-warning">
+                        <th scope="row">
+                            Mostrar
+                        </th>
+                        <th scope="row">
+                            Buscar
+                        </th>
+                    </tr>
+                    <tr class="table-secondary">
+                        <td scope="row">
+                            <select>
+                                <option>Todas las ordenes</option>
+                                <option>Ordenes cerradas</option>
+                                <option>Ordenes pendientes</option>
+                                <option>Ordenes perdidas</option>
+                            </select>
+                        </td>
+                        <td scope="row">
+                            <form id="buscarOrden" name="buscarOrden" action="ServletControlador" method="post">
+                                <input type="hidden" name="accion" value="buscar_orden">   
+                                <input type="hidden" name="privilegio" value="<%= privilegio%>">
+                                <input type="text" name="num_orden" placeholder="Id Orden">
+                                <button type="submit" class="btn btn-primary" >Buscar</button>
+                            </form>
+                        </td>                        
+                    </tr>   
+                    </tbody>
+                </table>
+                <br>
+                <br>
+                <br>
+                <br><br>
+                <table id="or" class="table table-hover">
+                    <tbody>
+                    <tr class="table-warning">
+                        <th scope="row">
+                            <center>Id orden</center>
+                        </th>
+                        <th scope="row">
+                            <center>Empleado</center>
+                         </th>
+                        <th scope="row">
+                            <center>Fecha</center>
+                         </th>
+                        <th scope="row">
+                            <center>Costo</center>
+                         </th>
+                        <th scope="row">
+                            <center>Estatus</center>
+                        </th>
+                        <th scope="row" colspan="2">
+                            <center>Opciones</center>
+                        </th>
+                    </tr>
+                    <tr class="table-secondary">
+                        <td scope="row">
+                            <p name="id_orden">
+                                <%= orden.getIdOrden()%>
+                            </p>
+                        </td>
+                        <td scope="row">
+                            <p name="empleado">
+                            </p>
+                        </td>
+                        <td scope="row">
+                            <p name="fecha">
+                                <%= orden.getFecha()%> &nbsp&nbsp&nbsp&nbsp&nbsp 
+                            </p>
+                        </td>
+                        <td scope="row">
+                            <p name="costo">
+                                $<%= Double.parseDouble(orden.getCostoTotal())%> &nbsp&nbsp&nbsp&nbsp&nbsp
+                            </p>
+                        </td>    
+                        <td scope="row">
+                            <p name="estatus">                           
+                            </p>
+                        </td>                       
+                        <td scope="row">  
+                            <form id="eliminarOrden" method="post" action="ServletControlador">
+                                <input type="hidden" name="accion" value="modificar">
+                                <input type="hidden" name="privilegio" value="<%= privilegio%>">
+                                <input type="hidden" name="id_orden" value="<%= orden.getIdOrden()%>">
+                                <button type="submit" class="btn btn-primary" >Modificar</button>
+                            </form>
+                        </td>
+                        <td scope="row">
+                            <form id="eliminarOrden" method="post" action="ServletControlador">
+                                <input type="hidden" name="accion" value="delete_orden">
+                                <input type="hidden" name="privilegio" value="<%= privilegio%>">
+                                <input type="hidden" name="id_orden" value="<%= orden.getIdOrden()%>">
+                                <button type="submit" class="btn btn-primary" >Eliminar</button>
+                            </form>                              
+                        </td>                         
+                    </tr>
+                    <th>             
+                </tbody>
+                </table>
+            </center>
+                <!-- <div id="footer"></div> -->
+        </div>
+        <%
+            }
+        %>
+    </body>
+</html>

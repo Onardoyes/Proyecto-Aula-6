@@ -1,0 +1,69 @@
+body {
+    background-color: white;
+}
+/*
+#menu ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#menu ul li{
+    display: inline-block;
+}
+
+#menu ul li a{
+    color:white;
+    display: block;
+    padding: 10px 30px;
+    text-decoration: none;
+}
+#menu ul li a:hover{
+    background-color: orangered;
+}*/
+
+div#formAgregar {
+  left: 30%;
+  width: 40%;
+  height: 50%;
+}
+
+div#tabUs table{
+  left: 10%;
+  width: 80%;
+  align-content: center;
+}
+
+
+div#izq {
+  background-color: #E5E4E3;
+  position: absolute;
+  width: 10%;
+  height: 100%;
+}
+ 
+div#sup {
+  position: absolute;
+  left: 0%;
+  width: 100%;
+  height: 10%;
+  background-color: #E5E4E3;
+}
+
+div#contenido {
+  position: absolute;
+  overflow: auto;
+  top: 22%;
+  left: 0%;
+  width: 100%;
+  height: 78%;
+  background-color: white;
+}
+
+div#footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 7%;
+  background-color: #555;
+}
