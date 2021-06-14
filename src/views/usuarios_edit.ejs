@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificar Usuario</title>
+</head>
+<body>
+    <form action="/update/<%= data.id_empleado %>" method="post">
+        <input type="text" name="nombre" value="<%= data.nombre %>">
+        <br>
+        <input type="text" name="primer_apellido" value="<%= data.primer_apellido %>">
+        <br>
+        <input type="text" name="segundo_apellido" value="<%= data.segundo_apellido %>">
+        <br>
+        <input type="text" name="cve_tipo_empleado" value="<%= data.cve_tipo_empleado %>">
+        <br>
+        <button type="submit">Modificar Empleado</button>
+    </form>
+</body>
+</html>

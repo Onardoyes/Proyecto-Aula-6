@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://bootswatch.com/4/flatly/bootstrap.min.css">
+    <title>SeaFood</title>
+</head>
+<body>
+    <div id="sup">
+        <table class="table table-hover" id="titulo">
+            <tbody>
+                <tr class="table-primary">
+                    <th scope="row"><center><h1>SeaFood</h1></center></th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="contenido">
+    <br>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>ID Empleado</th>
+                <th>Fecha</th>
+                <th>Costo total</th>
+                <th>Estatus</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% if(data) { %>
+                <% for (var i = 0; i < data.length; i++) { %>
+                    <tr>
+                        <td><%= data[i].id_orden %></td>
+                        <td><%= data[i].id_empleado %></td>
+                        <td><%= data[i].fecha %></td>
+                        <td><%= data[i].costo_total %></td>
+                        <td><%= data[i].estatus %></td>
+                        <td>
+                            <button type="submit" class="btn btn-primary" >Ver Orden</button>
+                        </td>
+                    </tr>
+                <% } %>
+            <% } %>
+        </tbody>
+    </table>
+    </div>
+</body>
+</html>

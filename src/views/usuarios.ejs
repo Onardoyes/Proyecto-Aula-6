@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../public/css/estilosUsuarios.css">
+    <link rel="stylesheet" href="https://bootswatch.com/4/flatly/bootstrap.min.css">
+    <title>SeaFood</title>
+</head>
+<body>
+    <div id="sup">
+        <table class="table table-hover" id="titulo">
+            <tbody>
+                <tr class="table-primary">
+                    <th scope="row"><center><h1>SeaFood</h1></center></th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="contenido">
+        <br>
+        <br>
+        <br>
+    <div class="card bg-light mb-3">
+        <div class="card-body">
+    <form action="/add" method="post">
+        <input type="text" name="nombre" placeholder="Nombre" class="form-control">
+        <br>
+        <input type="text" name="primer_apellido" placeholder="Primer Apellido" class="form-control">
+        <br>
+        <input type="text" name="segundo_apellido" placeholder="Segundo Apellido" class="form-control">
+        <br>
+        <input type="text" name="cve_tipo_empleado" placeholder="Tipo de Empleado" class="form-control">
+        <br>
+        <button type="submit" class="btn btn-primary" >Guardar Empleado</button>
+    </form>
+    </div>
+        </div>
+    <br>
+    <br>
+    <br>
+    <table border="0" align="center" id="us" class="table table-hover">
+        <tbody>
+            <tr class="table-warning">
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Primer Apellido</th>
+                <th>Segundo Apellido</th>
+                <th>Tipo de Empleado</th>
+                <th>Opciones</th>
+            </tr>
+            <% if(data) { %>
+                <% for (var i = 0; i < data.length; i++) { %>
+                    <tr class="table-secondary">
+                        <td><p><%= data[i].id_empleado %></p></td>
+                        <td><p><%= data[i].nombre %></p></td>
+                        <td><p><%= data[i].primer_apellido %></p></td>
+                        <td><p><%= data[i].segundo_apellido %></p></td>
+                        <td><p><%= data[i].cve_tipo_empleado %></p></td>
+                        <td>
+                            <button type="submit" class="btn btn-primary" >Modificar</button>
+                            <button type="submit" class="btn btn-primary" >Eliminar</button>
+                        </td>
+                    </tr>
+                <% } %>
+            <% } %>
+        </tbody>
+    </table>
+    <form action="/reportes" method="post">
+        <button type="submit" class="btn btn-primary">Reportes</button> 
+    </form>
+    <br>
+    <form action="/almacen" method="post">
+        <button type="submit" class="btn btn-primary">Almacen</button> 
+    </form>
+    <br>
+    <form action="/ordenes" method="post">
+        <button type="submit" class="btn btn-primary">Ordenes</button> 
+    </form>
+    </div>
+</body>
+</html>

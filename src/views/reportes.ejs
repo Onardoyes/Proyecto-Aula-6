@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://bootswatch.com/4/flatly/bootstrap.min.css">
+    <title>SeaFood</title>
+</head>
+<body>
+    <div id="sup">
+        <table class="table table-hover" id="titulo">
+            <tbody>
+                <tr class="table-primary">
+                    <th scope="row"><center><h1>SeaFood</h1></center></th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="contenido">
+        <center>
+            <div class="card bg-light mb-3" id="formReport">
+                <div class="card-body">
+    <form action="/addReportes" method="POST">
+        <input type="text" name="id_empleado" placeholder="ID Empleado" class="form-control">
+        <br>
+        <input type="text"  name="id_prioridad" placeholder="ID Prioridad" class="form-control">
+        <br>
+        <input type="datetime-local" name="fecha_reporte" placeholder="Fecha Reporte" class="form-control">
+        <br>
+        <input type="text" name="email" placeholder="Email" class="form-control">
+        <br>
+        <textarea name="reporte_descripcion" rows="3" placeholder="Descripción del Problema" class="form-control"></textarea>
+        <br>
+        <button type="submit" class="btn btn-primary" >Send</button>
+    </form>
+    </div>
+    </div>
+    </center>
+</body>
+</html>

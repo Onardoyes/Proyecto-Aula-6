@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://bootswatch.com/4/flatly/bootstrap.min.css">
+    <title>SeaFood</title>
+</head>
+<body>
+    <div id="sup">
+    <table class="table table-hover" id="titulo">
+        <tbody>
+            <tr class="table-primary">
+                <th scope="row"><center><h1>SeaFood</h1></center></th>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div id="contenido">            
+    
+    <center>
+        <form id="crearOrden" name="crear" action="ServletControlador" method="post">
+                               
+            <h3>Empleado encargado:</h3>
+
+            <select name="empleado_crear" required>
+            <%
+                if(data){
+                for(var i = 0; i < data.length; i++){                                    
+            %>
+                <option value="<%= data[i].id_empleado%>">                        
+                    <%= data[i].id_empleado data[i].id_nombre data[i].primer_apellido data[i].segundo_apellido%>                                                
+                </option>                                    
+            <%        
+                }
+            }
+            %>
+            </select> 
+            <br><br>
+            <button type="submit" class="btn btn-primary" >Crear Orden</button>
+        </form>               
+    </center>
+    
+    <br><br><br>
+    <table border="0" class="table table-hover">
+        <tbody>
+        <tr  class="table-warning">
+            <td>
+                Id Orden
+            </td>
+            <td >
+                Empleado
+            </td>
+            <td>
+                Fecha
+            </td>
+            <td>
+                Total
+            </td>
+            <td>
+                Estado
+            </td>
+            <td>
+                <center>Opciones</center>                        
+            </td>
+        </tr>
+        <% if(data) { %>
+            <% for (var i = 0; i < data.length; i++) { %>
+                <tr class="table-secondary">
+                    <td><%= data[i].id_orden %></td>
+                    <td><%= data[i].id_empleado %></td>
+                    <td><%= data[i].fecha %></td>
+                    <td><%= data[i].costo_total %></td>
+                    <td><%= data[i].estatus %></td>
+                    <td>
+                        <button type="submit" class="btn btn-primary" >Guardar</button>
+                    </td>
+                </tr>
+            <% } %>
+        <% } %>
+        </tbody>
+    </table>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <!-- <div id="footer"></div> -->
+</div>
+    <%
+        }
+    %>
+</body>
+</html>

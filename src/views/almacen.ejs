@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://bootswatch.com/4/flatly/bootstrap.min.css">
+    <title>Almacen</title>
+</head>
+<body>
+    <div id="sup">
+        <table class="table table-hover" id="titulo">
+            <tbody>
+                <tr class="table-primary">
+                    <th scope="row"><center><h1>SeaFood</h1></center></th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="contenido">
+    <table>
+        <tbody>
+            <tr class="table-warning">
+                <td>ID</td>
+                <td>Ingredientes</td>
+                <td>Fecha de Ingreso</td>
+                <td>Cantidad actual</td>
+                <td>Cantidad nueva</td>
+                <td>Opciones</td>
+            </tr>
+            <% if(data) { %>
+                <% for (var i = 0; i < data.length; i++) { %>
+                    <tr class="table-secondary">
+                        <td><%= data[i].id_ingrediente %></td>
+                        <td><%= data[i].nombre_ingrediente %></td>
+                        <td><%= data[i].fecha_ingreso %></td>
+                        <td><input type="text" name="cantidad_inicial" placeholder="<%= data[i].cantidad_inicial %> <%= data[i].id_unidad_medida %>"></td>
+                        <td><input type="text" name="cantidad_disponible" placeholder="<%= data[i].cantidad_disponible %> <%= data[i].id_unidad_medida %>"></td>
+                        <td>
+                            <button type="submit" class="btn btn-primary" >Guardar</button>
+                        </td>
+                    </tr>
+                <% } %>
+            <% } %>
+        </tbody>
+    </table>
+    </div>
+    <br>
+    <br>
+    <br>
+</body>
+</html>
