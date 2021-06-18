@@ -4,80 +4,97 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../public/css/estilosUsuarios.css">
-    <link rel="stylesheet" href="https://bootswatch.com/4/flatly/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>SeaFood</title>
 </head>
 <body>
-    <div id="sup">
-        <table class="table table-hover" id="titulo">
-            <tbody>
-                <tr class="table-primary">
-                    <th scope="row"><center><h1>SeaFood</h1></center></th>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <div id="contenido">
-        <br>
-        <br>
-        <br>
-    <div class="card bg-light mb-3">
-        <div class="card-body">
-    <form action="/add" method="post">
-        <input type="text" name="nombre" placeholder="Nombre" class="form-control">
-        <br>
-        <input type="text" name="primer_apellido" placeholder="Primer Apellido" class="form-control">
-        <br>
-        <input type="text" name="segundo_apellido" placeholder="Segundo Apellido" class="form-control">
-        <br>
-        <input type="text" name="cve_tipo_empleado" placeholder="Tipo de Empleado" class="form-control">
-        <br>
-        <button type="submit" class="btn btn-primary" >Guardar Empleado</button>
-    </form>
-    </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Seafood</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Incio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/reportes">Reportes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/almacen">Almacén</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/ordenes">Órdenes</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    <br>
-    <br>
-    <br>
-    <table border="0" align="center" id="us" class="table table-hover">
-        <tbody>
-            <tr class="table-warning">
-                <th>ID</th>
-                <th>Nombre</th>
-                <th>Primer Apellido</th>
-                <th>Segundo Apellido</th>
-                <th>Tipo de Empleado</th>
-                <th>Opciones</th>
+    </nav>
+
+    <div class="container pt-5">
+        <div class="card px-3 mb-4">
+            <div class="card-body">
+                <form class="row g-3" method="post" action="/add">
+                    <div class="col-md-6">
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="primer_apellido" class="form-label">Apellido Paterno</label>
+                        <input type="text" class="form-control" id="primer_apellido" name="primer_apellido">
+                    </div>
+                    <div class="col-12">
+                        <label for="segundo_apellido" class="form-label">Apellido materno</label>
+                        <input type="text" class="form-control" id="segundo_apellido" name="segundo_apellido">
+                    </div>
+                    <div class="col-12">
+                        <label for="cve_tipo_empleado" class="form-label">Tipo de empleado</label>
+                        <input type="text" class="form-control" id="cve_tipo_empleado" name="cve_tipo_empleado">
+                    </div>
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary float-end">Registrar empleado</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido paterno</th>
+                <th scope="col">Apellido materno</th>
+                <th scope="col">Tipo de empleado</th>
+                <th scope="col"></th>
             </tr>
+            </thead>
+            <tbody>
             <% if(data) { %>
                 <% for (var i = 0; i < data.length; i++) { %>
-                    <tr class="table-secondary">
-                        <td><p><%= data[i].id_empleado %></p></td>
-                        <td><p><%= data[i].nombre %></p></td>
-                        <td><p><%= data[i].primer_apellido %></p></td>
-                        <td><p><%= data[i].segundo_apellido %></p></td>
-                        <td><p><%= data[i].cve_tipo_empleado %></p></td>
+                    <tr class="">
+                        <td><span><%= data[i].id_empleado %></span></td>
+                        <td><span><%= data[i].nombre %></span></td>
+                        <td><span><%= data[i].primer_apellido %></span></td>
+                        <td><span><%= data[i].segundo_apellido %></span></td>
+                        <td><span><%= data[i].cve_tipo_empleado %></span></td>
                         <td>
-                            <button type="submit" class="btn btn-primary" >Modificar</button>
-                            <button type="submit" class="btn btn-primary" >Eliminar</button>
+                            <button type="button" class="btn btn-outline-primary btn-sm">
+                                <i class="material-icons p">edit</i>
+                            </button>
+                            <button type="button" class="btn btn-outline-danger btn-sm">
+                                <i class="material-icons">delete</i>
+                            </button>
                         </td>
                     </tr>
                 <% } %>
             <% } %>
-        </tbody>
-    </table>
-    <form action="/reportes" method="post">
-        <button type="submit" class="btn btn-primary">Reportes</button> 
-    </form>
-    <br>
-    <form action="/almacen" method="post">
-        <button type="submit" class="btn btn-primary">Almacen</button> 
-    </form>
-    <br>
-    <form action="/ordenes" method="post">
-        <button type="submit" class="btn btn-primary">Ordenes</button> 
-    </form>
+            </tbody>
+        </table>
     </div>
+    <script src="./js/bootstrap.js"></script>
 </body>
 </html>

@@ -15,16 +15,16 @@ router.get('/update/:id_empleado', mainController.edit);
 router.post('/update/:id_empleado', mainController.update);
 
 //routers reportes
-router.post('/reportes', mainController.renderReporte);
+router.get('/reportes', mainController.renderReporte);
 router.post('/addReportes', mainController.saveReporte);
 
 //router almacen
-router.post('/almacen', mainController.listInventario);
+router.get('/almacen', mainController.listInventario);
 router.get('/delete/:id_ingrediente', mainController.deleteInventario);
 router.post('/update/:id_ingrediente', mainController.updateInventario);
 
 //router ordenes
-router.post('/ordenes', mainController.listOrdenes);
+router.get('/ordenes', mainController.listOrdenes);
 router.post('/addOrdenes', mainController.saveOrdenes);
 
 
