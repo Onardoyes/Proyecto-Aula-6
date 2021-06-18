@@ -35,40 +35,42 @@
     </nav>
 
     <div class="container pt-5">
-
-        <table class="table table-hover">
-            <thead>
-            <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Apellido paterno</th>
-                <th scope="col">Apellido materno</th>
-                <th scope="col">Tipo de empleado</th>
-                <th scope="col"></th>
-            </tr>
-            </thead>
-            <tbody>
-            <% if(data) { %>
-                <% for (var i = 0; i < data.length; i++) { %>
-                    <tr class="">
-                        <td><span><%= data[i].id_empleado %></span></td>
-                        <td><span><%= data[i].nombre %></span></td>
-                        <td><span><%= data[i].primer_apellido %></span></td>
-                        <td><span><%= data[i].segundo_apellido %></span></td>
-                        <td><span><%= data[i].cve_tipo_empleado %></span></td>
-                        <td>
-                            <button type="button" class="btn btn-outline-primary btn-sm">
-                                <i class="material-icons p">edit</i>
-                            </button>
-                            <button type="button" class="btn btn-outline-danger btn-sm">
-                                <i class="material-icons">delete</i>
-                            </button>
-                        </td>
-                    </tr>
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido paterno</th>
+                    <th scope="col">Apellido materno</th>
+                    <th scope="col">Tipo de empleado</th>
+                    <th scope="col"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <% if(data) { %>
+                    <% for (var i = 0; i < data.length; i++) { %>
+                        <tr class="">
+                            <td><span><%= data[i].id_empleado %></span></td>
+                            <td><span><%= data[i].nombre %></span></td>
+                            <td><span><%= data[i].primer_apellido %></span></td>
+                            <td><span><%= data[i].segundo_apellido %></span></td>
+                            <td><span><%= data[i].cve_tipo_empleado %></span></td>
+                            <td>
+                                <button type="button" class="btn btn-outline-primary btn-sm">
+                                    <i class="material-icons">edit</i>
+                                </button>
+                                <button type="button" class="btn btn-outline-danger btn-sm">
+                                    <i class="material-icons">delete</i>
+                                </button>
+                            </td>
+                        </tr>
+                    <% } %>
                 <% } %>
-            <% } %>
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+        </div>
+
 
         <div class="card mb-4">
             <div class="card-header">
