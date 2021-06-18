@@ -4,48 +4,60 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://bootswatch.com/4/flatly/bootstrap.min.css">
-    <title>SeaFood</title>
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Órdenes</title>
 </head>
 <body>
-    <div id="sup">
-        <table class="table table-hover" id="titulo">
-            <tbody>
-                <tr class="table-primary">
-                    <th scope="row"><center><h1>SeaFood</h1></center></th>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <div id="contenido">
-    <br>
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>ID Empleado</th>
-                <th>Fecha</th>
-                <th>Costo total</th>
-                <th>Estatus</th>
-            </tr>
-        </thead>
-        <tbody>
-            <% if(data) { %>
-                <% for (var i = 0; i < data.length; i++) { %>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Seafood</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Incio</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container pt-5">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
                     <tr>
-                        <td><%= data[i].id_orden %></td>
-                        <td><%= data[i].id_empleado %></td>
-                        <td><%= data[i].fecha %></td>
-                        <td><%= data[i].costo_total %></td>
-                        <td><%= data[i].estatus %></td>
-                        <td>
-                            <button type="submit" class="btn btn-primary" >Ver Orden</button>
-                        </td>
+                        <th scope="col">ID</th>
+                        <th scope="col">ID empleado</th>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Costo total</th>
+                        <th scope="col">Estado</th>
+                        <th scope="col"></th>
                     </tr>
+                </thead>
+                <tbody>
+                <% if(data) { %>
+                    <% for (var i = 0; i < data.length; i++) { %>
+                        <tr>
+                            <td><%= data[i].id_orden %></td>
+                            <td><%= data[i].id_empleado %></td>
+                            <td><%= data[i].fecha %></td>
+                            <td><%= data[i].costo_total %></td>
+                            <td><%= data[i].estatus %></td>
+                            <td>
+                                <button type="button" class="btn btn-outline-primary btn-sm">
+                                    <i class="material-icons">visibility</i>
+                                </button>
+                            </td>
+                        </tr>
+                    <% } %>
                 <% } %>
-            <% } %>
-        </tbody>
-    </table>
+                </tbody>
+            </table>
+        </div>
     </div>
+    <script src="./js/bootstrap.js"></script>
 </body>
 </html>

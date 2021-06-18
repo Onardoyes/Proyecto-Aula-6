@@ -4,93 +4,91 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://bootswatch.com/4/flatly/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>SeaFood</title>
 </head>
 <body>
-    <div id="sup">
-    <table class="table table-hover" id="titulo">
-        <tbody>
-            <tr class="table-primary">
-                <th scope="row"><center><h1>SeaFood</h1></center></th>
-            </tr>
-        </tbody>
-    </table>
-</div>
-<div id="contenido">            
-    
-    <center>
-        <form id="crearOrden" name="crear" action="ServletControlador" method="post">
-                               
-            <h3>Empleado encargado:</h3>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">Seafood</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Incio</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
-            <select name="empleado_crear" required>
-            <%
-                if(data){
-                for(var i = 0; i < data.length; i++){                                    
-            %>
-                <option value="<%= data[i].id_empleado%>">                        
-                    <%= data[i].id_empleado data[i].id_nombre data[i].primer_apellido data[i].segundo_apellido%>                                                
-                </option>                                    
-            <%        
-                }
-            }
-            %>
-            </select> 
-            <br><br>
-            <button type="submit" class="btn btn-primary" >Crear Orden</button>
-        </form>               
-    </center>
-    
-    <br><br><br>
-    <table border="0" class="table table-hover">
-        <tbody>
-        <tr  class="table-warning">
-            <td>
-                Id Orden
-            </td>
-            <td >
-                Empleado
-            </td>
-            <td>
-                Fecha
-            </td>
-            <td>
-                Total
-            </td>
-            <td>
-                Estado
-            </td>
-            <td>
-                <center>Opciones</center>                        
-            </td>
-        </tr>
-        <% if(data) { %>
-            <% for (var i = 0; i < data.length; i++) { %>
-                <tr class="table-secondary">
-                    <td><%= data[i].id_orden %></td>
-                    <td><%= data[i].id_empleado %></td>
-                    <td><%= data[i].fecha %></td>
-                    <td><%= data[i].costo_total %></td>
-                    <td><%= data[i].estatus %></td>
-                    <td>
-                        <button type="submit" class="btn btn-primary" >Guardar</button>
-                    </td>
+    <div class="container pt-5">
+        <div class="card mb-4">
+            <div class="card-header">
+                Crear Orden
+            </div>
+            <div class="card-body px-3">
+                <form class="row g-3" id="crearOrden" method="post" action="/ServletControlador">
+                    <div class="col-md-4 col-sm-6">
+                        <label for="empleado_crear" class="form-label">Empleado encargado</label>
+                        <select class="form-select" name="empleado_crear" id="empleado_crear" required>
+                            <%
+                                if(data){
+                                    for(let i = 0; i < data.length; i++) {
+                            %>
+                                <option value="<%= data[i].id_empleado%>">
+                                    <%= data[i].id_empleado + " " + data[i].id_nombre + " " + data[i].primer_apellido + " " + data[i].segundo_apellido%>
+                                </option>
+                            <%
+                                    }
+                                }
+                            %>
+                        </select>
+                    </div>
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary float-end">Crear orden</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th scope="col">ID Orden</th>
+                    <th scope="col">Empleado</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Total</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col"></th>
                 </tr>
-            <% } %>
-        <% } %>
-        </tbody>
-    </table>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <!-- <div id="footer"></div> -->
-</div>
-    <%
-        }
-    %>
+                </thead>
+                <tbody>
+                <%  if(data) {
+                        for (var i = 0; i < data.length; i++) {
+                %>
+                        <tr>
+                            <td><%= data[i].id_orden %></td>
+                            <td><%= data[i].id_empleado %></td>
+                            <td><%= data[i].fecha %></td>
+                            <td><%= data[i].costo_total %></td>
+                            <td><%= data[i].estatus %></td>
+                            <td>
+                                <button type="button" class="btn btn-outline-primary btn-sm">
+                                    <i class="material-icons">save</i>
+                                </button>
+                            </td>
+                        </tr>
+                <%      }
+                    }
+                %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="./js/bootstrap.js"></script>
 </body>
 </html>
