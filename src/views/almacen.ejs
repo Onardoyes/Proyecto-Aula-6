@@ -38,12 +38,25 @@
                         <td><input type="text" name="cantidad_disponible" placeholder="<%= data[i].cantidad_disponible %> <%= data[i].id_unidad_medida %>"></td>
                         <td>
                             <button type="submit" class="btn btn-primary" >Guardar</button>
+                            <button type="submit" class="btn btn-primary" >Eliminar</button>
                         </td>
                     </tr>
                 <% } %>
             <% } %>
         </tbody>
     </table>
+    </div>
+    <div>
+        <h1>Agregar Ingrediente</h1>
+        <form action="/addIngrediente" method="POST">
+            <input type="text" name="id_ingrediente" placeholder="ID ingrediente" class="form-control">
+            <br>
+            <input type="datetime-local" name="fecha_ingrediente" placeholder="Fecha" class="form-control">
+            <br>
+            <input type="text" name="Cantidad" placeholder="Cantidad" class="form-control">
+            <br>
+            <button type="submit" class="btn btn-primary" >Agregar</button>
+        </form>
     </div>
     <br>
     <br>
