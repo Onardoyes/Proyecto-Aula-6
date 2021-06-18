@@ -20,8 +20,9 @@ router.post('/addReportes', mainController.saveReporte);
 
 //router almacen
 router.get('/almacen', mainController.listInventario);
-router.get('/delete/:id_ingrediente', mainController.deleteInventario);
-router.post('/update/:id_ingrediente', mainController.updateInventario);
+router.post('/deleteInventario', mainController.deleteIngrediente);
+router.post('/updateInventario', mainController.updateInventario);
+router.post('/addInventario',mainController.saveInventario);
 
 //router ordenes
 router.get('/ordenes', mainController.listOrdenes);

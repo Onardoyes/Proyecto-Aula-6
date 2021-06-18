@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/bootstrap.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <title>Almacén</title>
+    <title>SeaFood</title>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -40,10 +40,10 @@
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Ingredientes</th>
-                    <th scope="col">Fecha</th>
+                    <th scope="col">Fecha de Ingreso</th>
                     <th scope="col">Cantidad actual</th>
                     <th scope="col">Cantidad nueva</th>
-                    <th scope="col"></th>
+                    <th scope="col">Opciones</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -54,14 +54,20 @@
                             <td><%= data[i].nombre_ingrediente %></td>
                             <td><%= data[i].fecha_ingreso %></td>
                             <td><input type="text" name="cantidad_inicial" placeholder="<%= data[i].cantidad_inicial %> <%= data[i].id_unidad_medida %>"></td>
-                            <td><input type="text" name="cantidad_disponible" placeholder="<%= data[i].cantidad_disponible %> <%= data[i].id_unidad_medida %>"></td>
+                            <form action="/updateInventario" method="POST">
+                            <td><input type="text" name="cantidad_disponible" placeholder=" "></td>
                             <td>
+                                <input type="hidden" id="id_ingrediente" name="id_ingrediente" value='<%= data[i].id_ingrediente %>'>
                                 <button type="button" class="btn btn-outline-primary btn-sm">
-                                    <i class="material-icons">save</i>
+                                    <i class="material-icons">Guardar</i>
                                 </button>
+                            </form>
+                            <form action="/deleteInventario" method="POST">
+                                <input type="hidden" id="id_ingrediente" name="id_ingrediente" value='<%= data[i].id_ingrediente %>'>
                                 <button type="button" class="btn btn-outline-danger btn-sm">
-                                    <i class="material-icons">delete</i>
+                                    <i class="material-icons">Eliminar</i>
                                 </button>
+                            </form>
                             </td>
                         </tr>
                     <% } %>
@@ -72,13 +78,13 @@
 
         <div class="card mb-4">
             <div class="card-header">
-                Agregar despensa
+                Agregar Ingrediente
             </div>
             <div class="card-body px-3">
-                <form class="row g-3" method="post" action="/addIngrediente">
+                <form class="row g-3" method="POST" action="/addInventario">
                     <div class="col-md-4 col-sm-6">
                         <label for="id_ingrediente" class="form-label">ID ingrediente</label>
-                        <input type="text" class="form-control" id="id_ingrediente" name="id_ingrediente">
+                        <input type="number" class="form-control" id="id_ingrediente" name="id_ingrediente">
                     </div>
                     <div class="col-md-4 col-sm-6">
                         <label for="Cantidad" class="form-label">Cantidad</label>

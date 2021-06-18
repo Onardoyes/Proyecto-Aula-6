@@ -157,21 +157,31 @@ controller.listInventario = (req, res) => {
 };
 
 controller.updateInventario = (req, res) => {
-    const { cantidad_disponible } = req.params;
-    const { id_ingrediente} = req.params;
+    const data = req.body;
+
     req.getConnection((err, conn) => {
-        conn.query('UPDATE marisco.despensa set despensa.cantidad_inicial=? where despensa.id_ingrediente = ?', [cantidad_disponible, id_ingrediente], (err, rows) => {
-            res.redirect('/');
+        conn.query('UPDATE marisco.despensa set despensa.cantidad_inicial=? where despensa.id_ingrediente = ?', [data.cantidad_disponible, data.id_ingrediente], (err, rows) => {
+            res.redirect('/almacen');
         });
     });
 };
 
-controller.deleteInventario = (req, res) => {
-    const { id_ingrediente } = req.params;
+controller.deleteIngrediente = (req, res) => {
+    const data = req.body;
     req.getConnection((err, connection) => {
-      connection.query('DELETE FROM marisco.despensa WHERE id_ingrediente = ?', [id_ingrediente], (err, rows) => {
-        res.redirect('/');
+      connection.query('DELETE FROM marisco.despensa WHERE id_ingrediente = ?', [data.id_ingrediente], (err, rows) => {
+        res.redirect('/almacen');
+        console.log("llego al final")
       });
+    });
+};
+
+controller.saveInventario = (req, res) => {
+    const data = req.body;
+    req.getConnection((err, conn) => {
+        conn.query('INSERT INTO marisco.despensa(id_ingrediente, id_unidad_medida, fecha_ingreso, cantidad_inicial, cantidad_disponible) VALUES (?,?,?,?,?)', [data.id_ingrediente,"C",data.fecha_ingrediente,data.Cantidad,data.Cantidad], (err, rows) => {
+            res.redirect('/almacen');
+        });
     });
 };
 
