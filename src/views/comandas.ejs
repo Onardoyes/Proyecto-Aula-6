@@ -69,11 +69,17 @@
                 <tbody>
                 <%  if(data) {
                         for (var i = 0; i < data.length; i++) {
+                            let date;
+                            try {
+                                date = data[i].fecha.toLocaleString("es-MX");
+                            }catch (e){
+                                date = data[i].fecha;
+                            }
                 %>
                         <tr>
                             <td><%= data[i].id_orden %></td>
                             <td><%= data[i].id_empleado %></td>
-                            <td><%= data[i].fecha %></td>
+                            <td><%= date %></td>
                             <td><%= data[i].costo_total %></td>
                             <td><%= data[i].estatus %></td>
                             <td>
