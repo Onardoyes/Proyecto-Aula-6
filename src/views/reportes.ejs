@@ -4,38 +4,70 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://bootswatch.com/4/flatly/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>SeaFood</title>
 </head>
 <body>
-    <div id="sup">
-        <table class="table table-hover" id="titulo">
-            <tbody>
-                <tr class="table-primary">
-                    <th scope="row"><center><h1>SeaFood</h1></center></th>
-                </tr>
-            </tbody>
-        </table>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Seafood</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Incio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/reportes">Reportes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/almacen">Almacén</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/ordenes">Órdenes</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container pt-5">
+        <div class="card mb-4">
+            <div class="card-header">
+                Enviar reportes
+            </div>
+            <div class="card-body px-3">
+                <form class="row g-3" method="post" action="/addReportes">
+                    <div class="col-sm-6">
+                        <label for="id_empleado" class="form-label">ID del empleado</label>
+                        <input type="text" class="form-control" id="id_empleado" name="id_empleado">
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="id_prioridad" class="form-label">ID prioridad</label>
+                        <input type="text" class="form-control" id="id_prioridad" name="id_prioridad">
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="fecha_reporte" class="form-label">Fecha del reporte</label>
+                        <input type="datetime-local" class="form-control" id="fecha_reporte" name="fecha_reporte">
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="email" class="form-label">Correo electrónico</label>
+                        <input type="text" class="form-control" id="email" name="email">
+                    </div>
+                    <div class="mb-3 col-sm-12">
+                        <label for="reporte_descripcion" class="form-label">Descripción del Problema</label>
+                        <textarea class="form-control" id="reporte_descripcion" name="reporte_descripcion" rows="3"></textarea>
+                    </div>
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary float-end">Enviar reporte</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-    <div id="contenido">
-        <center>
-            <div class="card bg-light mb-3" id="formReport">
-                <div class="card-body">
-    <form action="/addReportes" method="POST">
-        <input type="text" name="id_empleado" placeholder="ID Empleado" class="form-control">
-        <br>
-        <input type="text"  name="id_prioridad" placeholder="ID Prioridad" class="form-control">
-        <br>
-        <input type="datetime-local" name="fecha_reporte" placeholder="Fecha Reporte" class="form-control">
-        <br>
-        <input type="text" name="email" placeholder="Email" class="form-control">
-        <br>
-        <textarea name="reporte_descripcion" rows="3" placeholder="Descripción del Problema" class="form-control"></textarea>
-        <br>
-        <button type="submit" class="btn btn-primary" >Send</button>
-    </form>
-    </div>
-    </div>
-    </center>
+    <script src="./js/bootstrap.js"></script>
 </body>
 </html>

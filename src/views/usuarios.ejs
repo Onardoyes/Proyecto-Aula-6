@@ -35,31 +35,6 @@
     </nav>
 
     <div class="container pt-5">
-        <div class="card px-3 mb-4">
-            <div class="card-body">
-                <form class="row g-3" method="post" action="/add">
-                    <div class="col-md-6">
-                        <label for="nombre" class="form-label">Nombre</label>
-                        <input type="text" class="form-control" id="nombre" name="nombre">
-                    </div>
-                    <div class="col-md-6">
-                        <label for="primer_apellido" class="form-label">Apellido Paterno</label>
-                        <input type="text" class="form-control" id="primer_apellido" name="primer_apellido">
-                    </div>
-                    <div class="col-12">
-                        <label for="segundo_apellido" class="form-label">Apellido materno</label>
-                        <input type="text" class="form-control" id="segundo_apellido" name="segundo_apellido">
-                    </div>
-                    <div class="col-12">
-                        <label for="cve_tipo_empleado" class="form-label">Tipo de empleado</label>
-                        <input type="text" class="form-control" id="cve_tipo_empleado" name="cve_tipo_empleado">
-                    </div>
-                    <div class="col-12">
-                        <button type="submit" class="btn btn-primary float-end">Registrar empleado</button>
-                    </div>
-                </form>
-            </div>
-        </div>
 
         <table class="table table-hover">
             <thead>
@@ -94,6 +69,36 @@
             <% } %>
             </tbody>
         </table>
+
+        <div class="card mb-4">
+            <div class="card-header">
+                Registrar nuevo empleado
+            </div>
+            <div class="card-body px-3">
+                <form class="row g-3" method="post" action="/add">
+                    <div class="col-md-6">
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="primer_apellido" class="form-label">Apellido Paterno</label>
+                        <input type="text" class="form-control" id="primer_apellido" name="primer_apellido">
+                    </div>
+                    <div class="col-12">
+                        <label for="segundo_apellido" class="form-label">Apellido materno</label>
+                        <input type="text" class="form-control" id="segundo_apellido" name="segundo_apellido">
+                    </div>
+                    <div class="col-12">
+                        <label for="cve_tipo_empleado" class="form-label">Tipo de empleado</label>
+                        <input type="text" class="form-control" id="cve_tipo_empleado" name="cve_tipo_empleado">
+                    </div>
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary float-end">Registrar empleado</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
     </div>
     <script src="./js/bootstrap.js"></script>
 </body>
